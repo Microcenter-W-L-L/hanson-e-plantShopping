@@ -92,6 +92,13 @@ body {
     margin-bottom: 10px;
 }
 
+.product-desc {
+    color: #544847;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
 .product-image {
     max-width: 100%;
     height: 200px; /* Adjust height for better consistency */
