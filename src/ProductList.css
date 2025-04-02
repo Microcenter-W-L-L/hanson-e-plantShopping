@@ -216,7 +216,25 @@ body {
     margin: 4px 2px;
     transition-duration: 0.4s;
     cursor: pointer;
+    font-style: normal;
   }
+
+  
+.product-button-disable {
+    background-color: #235525; /* Green */
+    border: none;
+    color: rgb(198, 188, 188);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-style: italic;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: not-allowed;;
+  }
+  
   
   .product-button:hover {
     background-color: #45a049;
