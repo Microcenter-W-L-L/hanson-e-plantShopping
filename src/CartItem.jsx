@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './CartItem.css';
 import { removeItem, updateQuantity } from './CartSlice';
 
-const CartItem = ({ onContinueShopping }) => {
+const CartItem = ({ onContinueShopping, removeFromSelectedItems }) => {
 
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch();
@@ -15,6 +15,14 @@ const CartItem = ({ onContinueShopping }) => {
       total += parseFloat(item.cost.substring(1)) * item.quantity;
     });
     return total.toFixed(2);
+  };
+
+  const calculateCartCount = () => {
+    let total = 0;
+    cart.forEach(item => {
+      total += item.quantity;
+    });
+    return total;
   };
 
   const handleContinueShopping = (e) => {
@@ -33,11 +41,13 @@ const CartItem = ({ onContinueShopping }) => {
     }
     else {
       dispatch(removeItem(item.name));
+      removeFromSelectedItems(item.name);
     }
   };
 
   const handleRemove = (item) => {
     dispatch(removeItem(item.name));
+    removeFromSelectedItems(item.name);
   };
 
   // Calculate total cost based on quantity for an item
@@ -46,12 +56,14 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleCheckoutShopping = (e) => {
-    alert('Functionality to be added for future reference');
+    alert('Comming Soon!');
   };
 
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h3 style={{ color: 'green' }}>No. of plants in Cart: {calculateCartCount()}</h3>
+
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>

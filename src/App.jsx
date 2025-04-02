@@ -30,7 +30,7 @@ function App() {
               Get Started
             </button>
           </div>
-          <div className="aboutus_container">
+          <div className="aboutus_main">
             <AboutUs />
           </div>
         </div>

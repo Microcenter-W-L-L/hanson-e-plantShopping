@@ -51,7 +51,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 10px;
-  border: 3px solid white;
+  
 }
 
 .content p,
@@ -135,6 +135,13 @@
     margin-top: 20px; /* Adjust as needed */
     width: 80%; /* Adjust as needed */
   }
+
+    .aboutus_main {
+    width: 800px;
+    color: white;
+    /* background-color: rgba(0,0,0,0.1); */
+
+}
 }
 
 @media screen and (max-width: 480px) {

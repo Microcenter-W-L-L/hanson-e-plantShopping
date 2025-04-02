@@ -232,6 +232,7 @@ function ProductList({ onHomeClick }) {
         justifyContent: 'space-between',
         alignItems: 'center',
         width: '1100px',
+        'margin-left': '10px'
     }
     const styleA = {
         color: 'white',
@@ -279,15 +280,24 @@ function ProductList({ onHomeClick }) {
 
     const cartCount = calculateCartCount();
 
-    console.log('Cart Count: ' + cartCount);
+    const removeFromSelectedItems = (name) => {
+        setAddedToCart((prevState) => {
+            const updatedState = { ...prevState };
+            delete updatedState[name];
+            return updatedState;
+        });
+    };
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
                 <div className="tag">
                     <div className="luxury">
-                        <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png" alt="" />
+                        <img src="https://cdn.pixabay.com/photo/2020/08/05/13/12/eco-5465432_1280.png"
+                            alt="" onClick={(e) => handleHomeClick(e)} />
                         <a href="/" onClick={(e) => handleHomeClick(e)}>
-                            <div>
+
+                            <div className="logoname">
                                 <h3 style={{ color: 'white' }}>Paradise Nursery</h3>
                                 <i style={{ color: 'white' }}>Where Green Meets Serenity</i>
                             </div>
@@ -335,7 +345,7 @@ function ProductList({ onHomeClick }) {
                 <div className="product-grid">
                     {plantsArray.map((category, index) => (
                         <div key={index}>
-                            <h1><div>{category.category}</div></h1>
+                            <div className='category'>{category.category}</div>
                             <div className="product-list">
                                 {category.plants.map((plant, plantIndex) => (
                                     <div className="product-card" key={plantIndex}>
@@ -354,7 +364,8 @@ function ProductList({ onHomeClick }) {
 
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping}
+                    removeFromSelectedItems={removeFromSelectedItems} />
             )}
         </div>
     );

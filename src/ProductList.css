@@ -163,10 +163,15 @@ body {
 .luxury {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     width: 650px;
     font-size: 19px;
 }
+
+.logoname {
+    margin-left: 20px;
+}
+
 .cart{
     color: white;
     display: flex;
@@ -195,6 +200,18 @@ body {
 
     
 }
+.category {
+    width:100%;
+    text-align: center;
+    font-size: 40px;     /* Adjust size as needed */
+    font-weight: bold;   /* Make it bold for emphasis */
+    margin: 20px 0;      /* Add some space above and below */
+    background-color: transparent; /* Optional: Light background */
+    border-top: 2px solid #908787; /* Border only on top */
+    border-bottom: 2px solid #908787; /* Border only on bottom */
+    display: inline-block; /* Adjusts width to fit content */
+}
+
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {
     .product-card {
